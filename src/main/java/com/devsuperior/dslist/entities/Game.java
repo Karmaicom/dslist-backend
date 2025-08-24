@@ -25,8 +25,11 @@ public class Game implements Serializable {
 	private String genre;
 	private String platforms;
 	private Double score;
+	@Column(name = "img_url")
 	private String imgUrl;
+	@Column(name = "short_description", columnDefinition = "TEXT")
 	private String shortDescrition;
+	@Column(name = "long_description", columnDefinition = "TEXT")
 	private String longDescription;
 	
 	public Game() {	}
