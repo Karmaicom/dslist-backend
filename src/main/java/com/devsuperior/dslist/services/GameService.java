@@ -1,6 +1,7 @@
 package com.devsuperior.dslist.services;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,12 @@ public class GameService {
 	private GameRepository gameRepository;
 	
 	public List<GameMinDto> findAll() {
+		
 		List<Game> games = gameRepository.findAll();
-		return games.stream().map(x -> new GameMinDto(x)).toList();
+		
+		return games.stream()
+					.map(x -> new GameMinDto(x))
+					.collect(Collectors.toList());
 	}
 	
 	
